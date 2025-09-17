@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Story Visuals — US2, US6, US10</title>
+  <style>
+    :root{--bg:#0b1220;--card:#0f1724;--muted:#9aa8bf;--accent:#06b6d4;--danger:#ef4444}
+    body{font-family:Inter,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071126,#071c2a);color:#e6eef8;margin:0;padding:28px}
+    .container{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:18px}
+    header{display:flex;align-items:center;justify-content:space-between}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+    .card{background:var(--card);border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(2,6,23,.6)}
+    .mock{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);height:340px;border-radius:8px;padding:12px;display:flex;flex-direction:column}
+    .title{font-weight:700;margin-bottom:8px}
+    .toolbar{display:flex;gap:8px;margin-bottom:8px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px 10px;border-radius:8px;color:var(--muted);font-size:13px}
+    .datagrid{flex:1;background:rgba(255,255,255,0.01);border-radius:6px;padding:8px;overflow:auto}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{padding:8px;border-bottom:1px dashed rgba(255,255,255,0.03);text-align:center}
+    th{font-weight:700;color:#cfeff7}
+    .fixed{position:sticky;left:0;background:rgba(11,17,28,0.6);box-shadow:2px 0 6px rgba(0,0,0,.4)}
+    .right-panel{display:flex;flex-direction:column;gap:8px}
+    .form-row{display:flex;gap:8px;align-items:center}
+    .input{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:6px;color:var(--muted);flex:1}
+    .small{width:140px}
+    .modal-sim{background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.03);padding:12px;border-radius:8px}
+    .hint{font-size:13px;color:var(--muted)}
+    footer{color:var(--muted);margin-top:12px}
+    @media (max-width:1000px){.grid{grid-template-columns:1fr} .mock{height:300px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Візуал — User Stories: US2, US6, US10</h1>
+        <p class="lead">Три макети: Головне вікно (US2), Видалення акаунта (US6), Вибір звіту для редагування (US10).</p>
+      </div>
+      <div class="hint">Показано умовні елементи інтерфейсу — використовуй як основу для макету</div>
+    </header>
+
+    <div class="grid">
+      <!-- US2: Main Window -->
+      <div class="card">
+        <div class="title">US2 — Головне вікно (Main window)</div>
+        <div class="mock">
+          <div class="toolbar">
+            <button class="btn">Create Report</button>
+            <button class="btn">Refresh</button>
+            <button class="btn">Export</button>
+            <div style="flex:1"></div>
+            <button class="btn">Sign Out</button>
+            <button class="btn">Exit</button>
+          </div>
+
+          <div class="datagrid">
+            <table>
+              <thead>
+                <tr>
+                  <th class="fixed">Id</th>
+                  <th>Summary</th>
+                  <th>Project</th>
+                  <th>Issue Type</th>
+                  <th>Priority</th>
+                  <th>Affect Version</th>
+                  <th>Fix Version</th>
+                  <th>Reporter</th>
+                  <th>Assignee</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                  <th>Due Date</th>
+                  <th>Creation Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="fixed">#1024</td><td style="text-align:left">Не зберігаються вкладення в звіт</td><td>Tracker</td><td>Bug</td><td>High</td><td>1.0</td><td>-</td><td>Alice</td><td>Bob</td><td>Major</td><td>New</td><td>2025-09-20</td><td>2025-09-15</td></tr>
+                <tr><td class="fixed">#1023</td><td style="text-align:left">UI: кнопка зливається з фоном</td><td>UX</td><td>Task</td><td>Low</td><td>1.0</td><td>-</td><td>Mark</td><td>John</td><td>Low</td><td>In Progress</td><td>2025-09-25</td><td>2025-09-10</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:10px;align-items:center">
+            <div class="hint">Підказки: Колонка Id фіксована; таблиця тільки для читання; сортування по кліку на заголовок</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- US6: Remove Account Window -->
+      <div class="card">
+        <div class="title">US6 — Видалення акаунта (Remove Account)</div>
+        <div class="mock">
+          <div class="modal-sim">
+            <div style="font-weight:700;margin-bottom:6px">User selection for removing</div>
+            <div class="form-row">
+              <label class="hint" style="width:110px">User Name</label>
+              <select class="input">
+                <option value="">-- виберіть користувача --</option>
+                <option>alice</option>
+                <option>bob</option>
+                <option>mark</option>
+              </select>
+            </div>
+
+            <div style="height:12px"></div>
+            <div class="form-row">
+              <label class="hint" style="width:110px">Status</label>
+              <input class="input small" value="Ready" readonly />
+            </div>
+
+            <div style="height:12px"></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end">
+              <button class="btn">Cancel</button>
+              <button class="btn" style="border-color:rgba(239,68,68,0.45);color:var(--danger)">Remove Account</button>
+            </div>
+
+            <div style="margin-top:8px" class="hint">Поведінка: кнопка Remove активна тільки після вибору користувача; перед видаленням показати підтвердження.</div>
+          </div>
+
+          <div style="margin-top:auto;color:var(--muted);font-size:13px">Acceptance: видалення лише після вибору та підтвердження; вікно не змінює розміри.</div>
+        </div>
+      </div>
+
+      <!-- US10: Report selection for editing -->
+      <div class="card">
+        <div class="title">US10 — Вибір звіту для редагування (Report selection)</div>
+        <div class="mock">
+          <div class="modal-sim">
+            <div style="font-weight:700;margin-bottom:6px">Report selection for editing</div>
+            <div class="form-row">
+              <label class="hint" style="width:110px">Report Id</label>
+              <select class="input">
+                <option value="">-- виберіть Report Id --</option>
+                <option>#1024 — Не зберігаються вкладення</option>
+                <option>#1023 — UI: кнопка зливається</option>
+              </select>
+            </div>
+
+            <div style="height:12px"></div>
+            <div style="display:flex;gap:8px;justify-content:flex-end">
+              <button class="btn">Open</button>
+            </div>
+
+            <div style="margin-top:8px" class="hint">Поведінка: Open відкриває вікно редагування тільки якщо Id обрано, інакше показати повідомлення "Report Id is not selected".</div>
+          </div>
+
+          <div style="margin-top:auto;color:var(--muted);font-size:13px">Acceptance: список порожній за замовчуванням; після відкриття відображає всі доступні звіти.</div>
+        </div>
+      </div>
+    </div>
+
+    <footer>Потрібні правки по стилю або додаткові макети — скажи, збережу і підправлю.</footer>
+  </div>
+</body>
+</html>
